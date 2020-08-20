@@ -52,6 +52,7 @@ nnoremap <leader>0 ^
 nnoremap <leader>ñ :w<CR><C-^>
 nnoremap <leader>Ñ :ls<CR>:b<Space>
 nnoremap <leader>s :w<CR>
+nnoremap <leader>q :q<CR>
 
 colorscheme gruvbox
 set background=dark
