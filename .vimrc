@@ -51,8 +51,16 @@ map <C-g> <Esc><Esc>:BCommits!<CR>
 nnoremap <leader>0 ^ 
 nnoremap <leader>ñ :w<CR><C-^>
 nnoremap <leader>Ñ :ls<CR>:b<Space>
-nnoremap <leader>s :w<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap + _
+vnoremap _ "*y
+nnoremap ¡ "*p
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv
+
 
 colorscheme gruvbox
 set background=dark
