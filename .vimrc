@@ -56,6 +56,8 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap + _
+nnoremap - }
+nnoremap < {
 vnoremap _ "*y
 nnoremap ¡ "*p
 vnoremap J :m '>+1<CR>gv=gv
