@@ -49,8 +49,9 @@ map <CR> o<Esc>
 map <C-f> <Esc><Esc>:Files!<CR>
 map <C-g> <Esc><Esc>:BCommits!<CR>
 nnoremap <leader>0 ^ 
-nnoremap <leader>ñ :w<CR><C-^>
-nnoremap <leader>Ñ :ls<CR>:b<Space>
+nnoremap <leader>; :w<CR><C-^>
+nnoremap <leader>: :ls<CR>:b<Space>
+nnoremap <leader>d :bd<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>j <C-w>j
