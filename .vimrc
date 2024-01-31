@@ -51,8 +51,6 @@ nnoremap <leader>: :ls<CR>:b<Space>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
-vnoremap <leader>c "*y
-nnoremap <leader>p "*p
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
 
