@@ -27,9 +27,6 @@ Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-utils/vim-man'
-Plug 'ggreer/the_silver_searcher'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
@@ -52,18 +49,12 @@ nnoremap <leader>0 ^
 nnoremap <leader>; :w<CR><C-^>
 nnoremap <leader>: :ls<CR>:b<Space>
 nnoremap <leader>d :bd<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
-nnoremap + _
-nnoremap - }
-nnoremap < {
-vnoremap _ "*y
-nnoremap ¡ "*p
+vnoremap <leader>c "*y
+nnoremap <leader>p "*p
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
-
 
 colorscheme gruvbox
 set background=dark
