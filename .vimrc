@@ -35,7 +35,10 @@ call plug#end()
 
 let mapleader = " "
 
-nmap <leader>gs :G<CR>
+nmap <leader>gs :G status<CR>
+nmap <leader>ga :G add .<CR>
+nmap <leader>go :G add <CR>
+nmap <leader>gc :G commit -m ""<Left>
 nmap <leader>gp :Gpush<CR>
 nmap <leader>gl :Gpull<CR>
 nmap <leader>gj :diffget //3<CR>
@@ -49,6 +52,7 @@ nnoremap <leader>0 ^
 nnoremap <leader>; :w<CR><C-^>
 nnoremap <leader>: :ls<CR>:b<Space>
 nnoremap <leader>d :bd<CR>
+nnoremap <leader>m :!man 
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 vnoremap J :m '>+1<CR>gv=gv
