@@ -35,12 +35,16 @@ call plug#end()
 
 let mapleader = " "
 
+nmap <leader>ru :w<CR>:!make && ./ssmap maps/uoft.txt<CR>
+nmap <leader>rh :w<CR>:!make && ./ssmap maps/huntsville.txt<CR>
+
 nmap <leader>gs :G status<CR>
+nmap <leader>gd :G diff<CR>
 nmap <leader>ga :G add .<CR>
-nmap <leader>go :G add <CR>
+nmap <leader>go :G add
 nmap <leader>gc :G commit -m ""<Left>
-nmap <leader>gp :Gpush<CR>
-nmap <leader>gl :Gpull<CR>
+nmap <leader>gp :G push<CR>
+nmap <leader>gl :G pull<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 
@@ -48,11 +52,11 @@ nnoremap <Tab> %
 map <CR> o<Esc>
 map <C-f> <Esc><Esc>:Files!<CR>
 map <C-g> <Esc><Esc>:BCommits!<CR>
-nnoremap <leader>0 ^ 
+nnoremap <leader>0 ^
 nnoremap <leader>; :w<CR><C-^>
 nnoremap <leader>: :ls<CR>:b<Space>
 nnoremap <leader>d :bd<CR>
-nnoremap <leader>m :!man 
+nnoremap <leader>m :!man
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 vnoremap J :m '>+1<CR>gv=gv
