@@ -1,21 +1,39 @@
 #!/usr/bin/env bash
-git clone --bare https://github.com/NabilAldihni/dot-files.git $HOME/.dotfiles
-# define config alias locally since the dotfiles
-# aren't installed on the system yet
-function config {
-   git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
-# create a directory to backup existing dotfiles to
-mkdir -p $HOME/.dotfiles-backup
-config checkout
-if [ $? = 0 ]; then
-  echo "Checked out dotfiles from https://github.com/NabilAldihni/dot-files.git";
-  else
-    echo "Moving existing dotfiles to ~/.dotfiles-backup";
-    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $HOME/.dotfiles-backup/{}
+
+set -e  # Exit on any error
+
+GIT_REPO="https://github.com/NabilAldihni/dot-files.git"
+BARE_DIR="$HOME/.dotfiles"
+BACKUP_DIR="$HOME/.dotfiles-backup"
+
+# Clone if not already cloned
+if [ -d "$BARE_DIR" ]; then
+    echo "$BARE_DIR already exists. Skipping clone."
+else
+    echo "Cloning dotfiles repo..."
+    git clone --bare "$GIT_REPO" "$BARE_DIR"
 fi
-# checkout dotfiles from repo
+
+# Define config alias
+function config {
+   git --git-dir="$BARE_DIR" --work-tree="$HOME" "$@"
+}
+
+# Try checking out the repo
+echo "Backing up pre-existing dotfiles..."
+mkdir -p "$BACKUP_DIR"
+config checkout 2>&1 | grep -E "^\s+\." | awk '{print $1}' | while read -r file; do
+    echo "Backing up $file"
+    mkdir -p "$(dirname "$BACKUP_DIR/$file")"
+    mv "$HOME/$file" "$BACKUP_DIR/$file"
+done
+
+# Now try to check out again
+echo "Checking out dotfiles..."
 config checkout
+
+# Hide untracked files
 config config status.showUntrackedFiles no
 
-source $HOME/.bashrc
+# Source new bashrc
+[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
