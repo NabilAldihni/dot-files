@@ -1,0 +1,49 @@
+[global]
+    font = Hack Nerd Font 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+
+    width = (300, 500)
+    offset = 20x20
+    origin = top-right
+
+    # transparency = 30
+    corner_radius = 10
+    padding = 16
+    horizontal_padding = 16
+    separator_height = 2
+
+    frame_width = 2
+    frame_color = "#4C566A"
+    separator_color = frame
+
+    # idle_threshold = 120
+    timeout = 6000
+
+    background = "#2E3440"
+    foreground = "#D8DEE9"
+
+    icon_position = left
+    icon_theme = Papirus
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#2E3440BB"
+    foreground = "#D8DEE9"
+    frame_color = "#434C5EBB"
+
+[urgency_normal]
+    background = "#3B4252BB"
+    foreground = "#ECEFF4"
+    frame_color = "#81A1C1BB"
+
+[urgency_critical]
+    background = "#BF616AFF"
+    foreground = "#ECEFF4"
+    frame_color = "#BF616AFF"
+
