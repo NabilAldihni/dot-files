@@ -16,6 +16,9 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.hidden = true
 
+vim.opt.exrc = true
+vim.opt.secure = true
+
 vim.keymap.set("n", "<Enter>", "o<Esc>")
 vim.keymap.set("n", "<S-Enter>", "O<Esc>")
 vim.keymap.set('n', '<C-c>', '<cmd>nohlsearch<CR>')

@@ -6,6 +6,6 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set('n', '<C-n>', '<Cmd>Neotree toggle<CR>')
+		vim.keymap.set('n', '<C-t>', '<Cmd>Neotree toggle<CR>')
 	end
 }
