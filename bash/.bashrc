@@ -111,3 +111,6 @@ export TERMINAL=alacritty
 export EDITOR=vim
 bind "set completion-ignore-case on"
 alias plantuml='java -jar /usr/local/bin/plantuml.jar'
+
+# Path stuff
+export PATH="$HOME/development/flutter/bin:$PATH"
