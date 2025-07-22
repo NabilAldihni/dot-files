@@ -35,7 +35,7 @@ return {
         }
 
         -- Global flutter command keymaps
-        vim.keymap.set("n", "<leader>fr", "<cmd>FlutterRun<CR>", { desc = "Flutter Run" })
+        vim.keymap.set("n", "<leader>fr", "<cmd>FlutterRun -d chrome<CR>", { desc = "Flutter Run" })
         vim.keymap.set("n", "<leader>fq", "<cmd>FlutterQuit<CR>", { desc = "Flutter Quit" })
         vim.keymap.set("n", "<leader>fd", "<cmd>FlutterDevices<CR>", { desc = "Flutter Devices" })
         vim.keymap.set("n", "<leader>fl", "<cmd>FlutterLogToggle<CR>", { desc = "Flutter Logs" })

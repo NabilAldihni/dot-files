@@ -2,7 +2,7 @@
     opacity = 1.0
 
 [font]
-    size = 14
+    size = 12
 
 [mouse]
     hide_when_typing = true

@@ -114,3 +114,5 @@ alias plantuml='java -jar /usr/local/bin/plantuml.jar'
 
 # Path stuff
 export PATH="$HOME/development/flutter/bin:$PATH"
+
+. "$HOME/.local/bin/env"
