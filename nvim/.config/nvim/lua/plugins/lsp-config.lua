@@ -19,11 +19,12 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.bashls.setup({})
             lspconfig.jedi_language_server.setup({})
+            lspconfig.emmet_language_server.setup({})
             lspconfig.rust_analyzer.setup({
-		diagnostic = {
-			refreshSupport = false,
-		}
-	    })
+                diagnostic = {
+                    refreshSupport = false,
+		        }
+	        })
         end
     }
 }

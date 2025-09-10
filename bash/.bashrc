@@ -116,3 +116,5 @@ alias plantuml='java -jar /usr/local/bin/plantuml.jar'
 export PATH="$HOME/development/flutter/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+
+ssh-add -q ~/.ssh/lab_rsa
