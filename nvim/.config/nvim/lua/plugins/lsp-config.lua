@@ -9,7 +9,15 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "bashls", "pyright", "rust_analyzer" }
+                ensure_installed = { 
+                    "lua_ls", 
+                    "bashls", 
+                    "pyright", 
+                    "rust_analyzer", 
+                    "eslint", 
+                    "html",
+                    "cssls"
+                }
             })
         end
     },
@@ -20,6 +28,7 @@ return {
             lspconfig.bashls.setup({})
             lspconfig.jedi_language_server.setup({})
             lspconfig.emmet_language_server.setup({})
+            lspconfig.ts_ls.setup({})
             lspconfig.rust_analyzer.setup({
                 diagnostic = {
                     refreshSupport = false,
