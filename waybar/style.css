@@ -1,0 +1,32 @@
+window#waybar {
+  background-color: rgba(30, 30, 30, 0.7);
+  color: white;
+}
+
+#custom-tailscale.connected {
+  color: #4caf50; /* green */
+}
+
+#custom-tailscale.disconnected {
+  color: #f44336; /* red */
+}
+
+#workspaces button {
+  padding: 0 6px;
+  color: #cccccc;
+}
+
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+#workspaces button.occupied {
+  color: #a0a0a0;
+}
+
+#workspaces button.empty {
+  color: #555555;
+}
+

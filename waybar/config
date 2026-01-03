@@ -1,0 +1,32 @@
+[
+  {
+    "clock": {
+      "format": "{:%Y-%m-%d %H:%M}"
+    },
+    "custom/tailscale": {
+      "exec": "tailscale-status",
+      "interval": 5,
+      "return-type": "json"
+    },
+    "layer": "top",
+
+    "modules-center": [
+      "clock"
+    ],
+
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/submap",
+      "window"
+    ],
+
+    "modules-right": [
+      "battery",
+      "custom/tailscale",
+      "pulseaudio"
+    ],
+
+    "position": "top"
+  }
+]
+
