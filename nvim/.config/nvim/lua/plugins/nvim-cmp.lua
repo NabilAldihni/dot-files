@@ -2,6 +2,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
+        "neovim/nvim-lspconfig"
     },
     config = function()
         local cmp = require("cmp")
@@ -16,12 +17,6 @@ return {
             sources = {
                 { name = "nvim_lsp" },
             },
-        })
-
-        -- Add completion capabilities to LSP
-        local capabilities = cmp_lsp.default_capabilities()
-        require("lspconfig").rust_analyzer.setup({
-            capabilities = capabilities,
         })
     end
 }
