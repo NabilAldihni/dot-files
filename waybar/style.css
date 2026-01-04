@@ -32,7 +32,7 @@ tooltip {
     background: alpha(@background,.8);
     color: @color7;
 }
-#clock:hover,#custom-tailscale-status:hover,#custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover,#disk:hover{
+#clock:hover,#custom-tailscale-status:hover,#custom-notification:hover,#pulseaudio:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover,#disk:hover{
     transition: all .3s ease;
     color:@color9;
 }
@@ -89,6 +89,14 @@ tooltip {
 }
 #custom-tailscale-status.connected {
     color:#26A65B;
+}
+#pulseaudio {
+    padding: 0px 15px;
+    transition: all .3s ease;
+    color:@color7;
+}
+#pulseaudio.muted {
+    padding: 0px 10px;
 }
 #custom-tailscale-status.disconnected {
     color:#f53c3c;
