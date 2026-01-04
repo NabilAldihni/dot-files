@@ -6,7 +6,6 @@ return {
     },
     config = function()
         local cmp = require("cmp")
-        local cmp_lsp = require("cmp_nvim_lsp")
 
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
@@ -18,6 +17,6 @@ return {
                 { name = "nvim_lsp" },
             },
         })
-    end
+    end,
 }
 

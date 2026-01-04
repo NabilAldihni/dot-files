@@ -1,14 +1,17 @@
 [
   {
+    "position": "top",
+    "layer": "top",
+
     "clock": {
       "format": "{:%Y-%m-%d %H:%M}"
     },
+
     "custom/tailscale": {
       "exec": "tailscale-status",
       "interval": 5,
       "return-type": "json"
     },
-    "layer": "top",
 
     "modules-center": [
       "clock"
@@ -26,7 +29,6 @@
       "pulseaudio"
     ],
 
-    "position": "top"
   }
 ]
 
