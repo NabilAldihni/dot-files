@@ -96,7 +96,7 @@
                 "transition-duration": 600,
                 "transition-to-left": true,
             },
-            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","custom/endpoint"],
+            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","disk","custom/endpoint"],
         },
         "custom/colorpicker": {
             "format": "{}",
@@ -117,5 +117,10 @@
             "critical-threshold": 80,
             "format": "",
         },
+        "disk": {
+            "interval": 60,
+            "format": "",
+            "tooltip-format": "Used {used} out of {total}",
+            "path": "/"
+        }
 } 
-

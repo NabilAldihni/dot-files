@@ -32,7 +32,7 @@ tooltip {
     background: alpha(@background,.8);
     color: @color7;
 }
-#clock:hover,#custom-tailscale-status:hover,#custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover{
+#clock:hover,#custom-tailscale-status:hover,#custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover,#disk:hover{
     transition: all .3s ease;
     color:@color9;
 }
@@ -144,7 +144,7 @@ tooltip {
 #custom-colorpicker{
     padding: 0px 10px;
 }
-#cpu,#memory,#temperature{
+#cpu,#memory,#temperature,#disk{
     padding: 0px 10px;
     transition: all .3s ease; 
     color:@color7;
