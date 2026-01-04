@@ -4,7 +4,7 @@
     "layer": "top",
 
     "clock": {
-      "format": "{:%Y-%m-%d %H:%M}"
+      "format": "{:%H:%M - %d/%m/%Y}"
     },
 
     "custom/tailscale": {
