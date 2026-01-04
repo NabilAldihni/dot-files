@@ -4,7 +4,7 @@
         "reload_style_on_change": true,
         "modules-left": ["clock"],
         "modules-center": ["hyprland/workspaces"],
-        "modules-right": ["group/expand","bluetooth","network","battery","custom/notification"],
+        "modules-right": ["group/expand","custom/tailscale-status","bluetooth","network","battery","custom/notification"],
 
 
         "hyprland/workspaces": {
@@ -45,6 +45,11 @@
             "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
             "tooltip-format-ethernet": "{ifname} 🖧 ",
             "on-click": "alacritty nmtui"
+        },
+        "custom/tailscale-status": {
+            "exec": "~/.config/waybar/scripts/tailscale-status.sh",
+            "interval": 5,
+            "return-type": "json"
         },
         "bluetooth": {
             "format-on": "󰂯",
