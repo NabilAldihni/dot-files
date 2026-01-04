@@ -29,7 +29,7 @@
             "tooltip-format": "<tt>{calendar}</tt>",
             "calendar": {
                 "format": {
-                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
+                    "today": "<span color='#45d4ff'><b>{}</b></span>",
                 }
             },
             "actions": {
