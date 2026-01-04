@@ -56,7 +56,7 @@
             "format-bluetooth": "{volume}% ",
             "format-muted": "",
             "scroll-step": 0,
-            "on-click": "pavucontrol",
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
             "ignored-sinks": ["Easy Effects Sink"]
         },
         "bluetooth": {
