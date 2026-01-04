@@ -7,8 +7,8 @@ fi
 
 state=$(echo "$status" | jq -r '.BackendState')
 if [ "$state" = "Running" ]; then
-    echo "{\"text\": \"\", \"tooltip\": \"Tailscale connected ($ip)\", \"class\": \"connected\"}"
+    echo "{\"text\": \"\", \"tooltip\": \"Tailscale connected\", \"class\": \"connected\"}"
 else
-    echo "{\"text\": \"\", \"tooltip\": \"Tailscale backend not running ($state)\", \"class\": \"disconnected\"}"
+    echo "{\"text\": \"\", \"tooltip\": \"Tailscale not running ($state)\", \"class\": \"disconnected\"}"
 fi
 
