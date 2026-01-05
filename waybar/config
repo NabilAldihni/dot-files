@@ -4,7 +4,7 @@
         "reload_style_on_change": true,
         "modules-left": ["clock"],
         "modules-center": ["hyprland/workspaces"],
-        "modules-right": ["group/expand","pulseaudio","custom/tailscale-status","bluetooth","network","battery","custom/notification"],
+        "modules-right": ["group/expand","tray","custom/endpoint","pulseaudio","custom/tailscale-status","network","battery","custom/notification"],
 
 
         "hyprland/workspaces": {
@@ -37,6 +37,11 @@
                 "on-click": "shift_up"
             }
         },
+        "tray": {
+            "spacing": 10,
+            "show-passive-items": true,
+            "reverse-direction": true,
+        },
         "network": {
             "format-wifi": "",
             "format-ethernet":"",
@@ -56,21 +61,9 @@
             "format-bluetooth": "{volume}% ",
             "format-muted": "",
             "scroll-step": 0,
-            "on-click": "pavucontrol",
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
             "ignored-sinks": ["Easy Effects Sink"]
         },
-        "bluetooth": {
-            "format-on": "󰂯",
-            "format-off": "BT-off",
-            "format-disabled": "󰂲",
-            "format-connected-battery": "{device_battery_percentage}% 󰂯",
-            "format-alt": "{device_alias} 󰂯",
-            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager",
-        }, 
         "battery": {
             "interval":30,
             "states": {
