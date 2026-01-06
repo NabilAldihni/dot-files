@@ -4,7 +4,7 @@
         "reload_style_on_change": true,
         "modules-left": ["clock"],
         "modules-center": ["hyprland/workspaces"],
-        "modules-right": ["group/expand","tray","custom/endpoint","pulseaudio","custom/tailscale-status","network","battery","custom/notification"],
+        "modules-right": ["group/expand","tray","custom/endpoint","pulseaudio","custom/tailscale-controls","network","battery","custom/notification"],
 
 
         "hyprland/workspaces": {
@@ -51,10 +51,11 @@
             "tooltip-format-ethernet": "{ifname} 🖧 ",
             "on-click": "alacritty nmtui"
         },
-        "custom/tailscale-status": {
-            "exec": "~/.config/waybar/scripts/tailscale-status.sh",
+        "custom/tailscale-controls": {
+            "exec": "~/.config/waybar/scripts/tailscale-controls.sh",
             "interval": 5,
-            "return-type": "json"
+            "return-type": "json",
+            "on-click": "~/.config/waybar/scripts/tailscale-controls.sh toggle"
         },
         "pulseaudio": {
             "format": "{volume}% ",
