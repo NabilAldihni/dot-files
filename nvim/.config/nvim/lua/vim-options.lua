@@ -37,3 +37,6 @@ vim.o.signcolumn = "yes"
 -- Map <Leader>e (or any key) to show diagnostics in a floating window
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { silent = true })
 
+-- Tag navigation
+vim.keymap.set('n', '<C-[>', '<C-t>', { desc = 'Go back in tag stack' })
+
