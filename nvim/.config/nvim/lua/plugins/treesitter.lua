@@ -6,7 +6,7 @@ return {
 	config = function()
 		local config = require("nvim-treesitter.configs")
 		config.setup({
-			ensure_installed = {"lua", "python", "bash", "javascript","dart","solidity","c","powershell","markdown","markdown_inline"},
+			ensure_installed = {"lua", "python", "bash", "javascript","dart","solidity","c","powershell","markdown","markdown_inline","terraform"},
 			highlight = { enable = true },
 			indent = { enable = true }
 		})
