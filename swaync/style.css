@@ -1,0 +1,136 @@
+@import url('/home/nabil/.cache/wal/colors-waybar.css');
+
+:root {
+  --cc-bg:              rgba(19, 18, 43, 0.85);
+  --noti-bg:            19, 18, 43;
+  --noti-bg-alpha:      0.80;
+  --noti-bg-darker:     rgba(13, 12, 30, 0.90);
+  --noti-bg-hover:      rgba(40, 38, 70, 0.90);
+  --noti-bg-focus:      rgba(50, 48, 85, 0.60);
+  --noti-close-bg:      rgba(255, 255, 255, 0.10);
+  --noti-close-bg-hover:rgba(255, 255, 255, 0.18);
+  --noti-border-color:  rgba(196, 195, 202, 0.12);
+  --text-color:         #c4c3ca;
+  --text-color-disabled:#626177;
+  --bg-selected:        #0071D0;
+  --border-radius:      10px;
+}
+
+notificationwindow, blankwindow {
+  background: transparent;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+.floating-notifications .notification {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.control-center {
+  background: var(--cc-bg);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.control-center .control-center-list {
+  background: transparent;
+}
+
+.control-center .control-center-list-placeholder {
+  opacity: 0.4;
+}
+
+.notification-row {
+  background: none;
+  outline: none;
+}
+
+.notification-row:focus,
+.notification-group:focus {
+  background: var(--noti-bg-focus);
+}
+
+.notification-row .notification-background {
+  padding: 6px 12px;
+}
+
+.notification-row .notification-background .notification {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--noti-border-color);
+  padding: 0;
+  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  padding: 4px;
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover {
+  background: var(--noti-bg-hover);
+}
+
+.notification-content .text-box .summary {
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+.notification-content .text-box .body {
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+.notification-content .text-box .time {
+  font-weight: bold;
+  color: var(--text-color-disabled);
+  text-shadow: none;
+}
+
+.close-button {
+  background: var(--noti-close-bg);
+  color: var(--text-color);
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: 8px;
+  margin-right: 8px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  background: var(--noti-close-bg-hover);
+}
+
+.widget {
+  margin: 8px;
+  padding: 8px;
+  border-radius: var(--border-radius);
+}
+
+.widget-title > label {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-right: 8px;
+}
+
+.widget-title > button {
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  background: var(--noti-close-bg);
+  border: none;
+}
+
+.widget-title > button:hover {
+  background: var(--noti-bg-hover);
+}
