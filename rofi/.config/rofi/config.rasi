@@ -1,5 +1,5 @@
 configuration {
-	show-icons: false;
+	show-icons: true;
 	timeout {
 		action: "kb-cancel";
 		delay:  0;
@@ -8,6 +8,7 @@ configuration {
 		directories-first: true;
 		sorting-method:    "name";
 	}
+	display-drun: " ";
 	/*	modes: "window,drun,run,ssh";*/
 	/*	font: "mono 12";*/
 	/*	location: 0;*/
@@ -156,6 +157,4 @@ configuration {
 		/*	me-accept-custom: "Control+MouseDPrimary";*/
 }
 
-//@theme "/nix/store/qda1dx1sa0adn9g2c9xifk63pm19ylj4-rofi-2.0.0/share/rofi/themes/Arc-Dark.rasi"
-
-@theme "/nix/store/zb80j4cg9pl4gkdmr2jjgrmhnswp1jg2-rofi-2.0.0/share/rofi/themes/Arc-Dark.rasi"
+@theme "~/.config/rofi/theme.rasi"
