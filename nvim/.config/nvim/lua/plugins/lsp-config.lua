@@ -60,7 +60,7 @@ return {
             vim.lsp.config('html', {})
             vim.lsp.config('cssls', {})
             vim.lsp.config('bashls', {})
-            vim.lsp.config('cairo_ls', {})
+            vim.lsp.config('haskell-language-server', {})
 
             vim.lsp.enable('ts_ls')
             vim.lsp.enable('lua_ls')
@@ -70,7 +70,7 @@ return {
             vim.lsp.enable('html')
             vim.lsp.enable('cssls')
             vim.lsp.enable('bashls')
-            vim.lsp.enable('cairo_ls')
+            vim.lsp.enable('haskell-language-server')
         end,
     }
 }
