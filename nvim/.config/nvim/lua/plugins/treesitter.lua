@@ -1,15 +1,42 @@
-
-return {
-	"nvim-treesitter/nvim-treesitter",
-    branch = "master",
-	build = ":TSUpdate",
-	config = function()
-		local config = require("nvim-treesitter.configs")
-		config.setup({
-			ensure_installed = {"lua", "python", "bash", "javascript","dart","solidity","c","powershell","markdown","markdown_inline","terraform", "haskell"},
-			highlight = { enable = true },
-			indent = { enable = true }
-		})
-	end
+local parsers = {
+  "lua",
+  "python",
+  "bash",
+  "javascript",
+  "dart",
+  "solidity",
+  "c",
+  "powershell",
+  "markdown",
+  "markdown_inline",
+  "terraform",
+  "haskell",
 }
 
+return {
+  "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  lazy = false,
+  build = ":TSUpdate",
+  config = function()
+    require("nvim-treesitter").setup()
+
+    local installed = require("nvim-treesitter.config").get_installed()
+    local to_install = vim.iter(parsers)
+      :filter(function(parser)
+        return not vim.tbl_contains(installed, parser)
+      end)
+      :totable()
+
+    if #to_install > 0 then
+      require("nvim-treesitter").install(to_install)
+    end
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+  end,
+}
