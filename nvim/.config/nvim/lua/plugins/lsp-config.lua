@@ -10,6 +10,19 @@ local servers = {
   "haskell-language-server",
 }
 
+local function clangd_cmd()
+  local clangd = vim.fn.exepath("clangd")
+  if clangd == "" then
+    clangd = "clangd"
+  end
+
+  return {
+    clangd,
+    "--background-index",
+    "--query-driver=**/xtensa-*-elf-gcc,**/xtensa-*-elf-g++",
+  }
+end
+
 return {
   "neovim/nvim-lspconfig",
   lazy = false,
@@ -29,14 +42,27 @@ return {
         end, opts)
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client and client.supports_method("textDocument/completion") then
+        if client and client:supports_method("textDocument/completion", ev.buf) then
           vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
         end
       end,
     })
 
+    vim.lsp.config("clangd", {
+      cmd = clangd_cmd(),
+      filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+      root_markers = {
+        "build/compile_commands.json",
+        ".clangd",
+        "sdkconfig",
+        "CMakeLists.txt",
+      },
+    })
+
     for _, server in ipairs(servers) do
-      vim.lsp.config(server, {})
+      if server ~= "clangd" then
+        vim.lsp.config(server, {})
+      end
       vim.lsp.enable(server)
     end
   end,

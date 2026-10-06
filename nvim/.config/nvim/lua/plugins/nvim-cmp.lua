@@ -11,14 +11,25 @@ return {
     },
     config = function()
         local cmp = require("cmp")
-        local luasnip = require("luasnip")
-        
+
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        local function insert_plain_snippet(body)
+            if body:find("%$") and body:match("%(") and body:match("%$[%{0-9]") then
+                local name = body:match("^([%w_%.:]+)%(")
+                if name then
+                    body = name .. "()"
+                end
+            else
+                body = body:gsub("%$%{%d+:?([^}]*)%}", "%1"):gsub("%$%d+", "")
+            end
+            vim.api.nvim_put(vim.split(body, "\n", { plain = true }), "c", true, true)
+        end
 
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    luasnip.lsp_expand(args.body)
+                    insert_plain_snippet(args.body)
                 end,
             },
             window = {
@@ -55,8 +66,6 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
                     else
                         fallback()
                     end
@@ -64,8 +73,6 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
                     else
                         fallback()
                     end

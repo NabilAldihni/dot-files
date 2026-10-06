@@ -22,6 +22,7 @@ vim.opt.secure = true
 vim.keymap.set("n", "<Enter>", "o<Esc>")
 vim.keymap.set("n", "<S-Enter>", "O<Esc>")
 vim.keymap.set('n', '<C-c>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('v', '<leader>y', '"+y')
 
 -- Disable inline text
 vim.diagnostic.config({
