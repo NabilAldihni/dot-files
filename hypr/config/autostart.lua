@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+    hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+    hl.exec_cmd("sh -c '[ -f ~/.cache/wal/colors-waybar.css ] || wal --theme base16-default-dark -n; waybar'")
+    hl.exec_cmd("hypridle")
+    hl.exec_cmd("hyprpaper")
+end)
