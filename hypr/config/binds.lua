@@ -8,7 +8,20 @@ hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(mod .. " + Z", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mod .. " + F1", hl.dsp.exec_cmd("zen"))
 hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" -t png - | wl-copy -t image/png]]))
-hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload && pkill waybar && hyprctl dispatch exec waybar && pkill hyprpaper && hyprctl dispatch exec hyprpaper"))
+hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd([[
+hyprctl reload
+pkill -x waybar
+pkill -x .waybar-wrapped
+pkill -x hyprpaper
+i=0
+while pgrep -x waybar >/dev/null || pgrep -x .waybar-wrapped >/dev/null; do
+    i=$((i + 1))
+    [ "$i" -ge 20 ] && break
+    sleep 0.05
+done
+hyprctl eval 'hl.exec_cmd("waybar")'
+hyprctl eval 'hl.exec_cmd("hyprpaper")'
+]]))
 hl.bind(mod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"))
 
 -- Workspace keybindings
