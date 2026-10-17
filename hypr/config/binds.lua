@@ -19,7 +19,7 @@ while pgrep -x waybar >/dev/null || pgrep -x .waybar-wrapped >/dev/null; do
     [ "$i" -ge 20 ] && break
     sleep 0.05
 done
-hyprctl eval 'hl.exec_cmd("waybar")'
+hyprctl eval 'hl.exec_cmd("~/.config/waybar/scripts/waybar-run.sh")'
 hyprctl eval 'hl.exec_cmd("hyprpaper")'
 ]]))
 hl.bind(mod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"))
