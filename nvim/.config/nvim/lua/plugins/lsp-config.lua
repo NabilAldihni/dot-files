@@ -10,17 +10,32 @@ local servers = {
   "haskell-language-server",
 }
 
-local function clangd_cmd()
+local function clangd_executable()
   local clangd = vim.fn.exepath("clangd")
   if clangd == "" then
     clangd = "clangd"
   end
+  return clangd
+end
 
-  return {
-    clangd,
+-- Nix's clangd wrapper adds the host libstdc++ paths unless --query-driver is
+-- set. That flag is only needed so clangd will run the Xtensa cross-compiler.
+local function clangd_cmd(dispatchers, config)
+  local cmd = {
+    clangd_executable(),
     "--background-index",
-    "--query-driver=**/xtensa-*-elf-gcc,**/xtensa-*-elf-g++",
   }
+
+  local root = config and config.root_dir
+  if type(root) == "string" and vim.uv.fs_stat(vim.fs.joinpath(root, "sdkconfig")) then
+    table.insert(cmd, "--query-driver=**/xtensa-*-elf-gcc,**/xtensa-*-elf-g++")
+  end
+
+  return vim.lsp.rpc.start(cmd, dispatchers, {
+    cwd = config.cmd_cwd,
+    env = config.cmd_env,
+    detached = config.detached,
+  })
 end
 
 return {
@@ -49,7 +64,7 @@ return {
     })
 
     vim.lsp.config("clangd", {
-      cmd = clangd_cmd(),
+      cmd = clangd_cmd,
       filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
       root_markers = {
         "build/compile_commands.json",

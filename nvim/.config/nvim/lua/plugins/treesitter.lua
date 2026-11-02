@@ -6,6 +6,7 @@ local parsers = {
   "dart",
   "solidity",
   "c",
+  "cpp",
   "powershell",
   "markdown",
   "markdown_inline",
