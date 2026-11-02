@@ -6,7 +6,8 @@ hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + D", hl.dsp.exec_cmd("rofi -show drun -show-icons"))
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(mod .. " + Z", hl.dsp.exec_cmd("hyprlock"))
-hl.bind(mod .. " + F1", hl.dsp.exec_cmd("zen"))
+hl.bind(mod .. " + F3", hl.dsp.exec_cmd("zen"))
+hl.bind(mod .. " + F4", hl.dsp.exec_cmd("vesktop"))
 hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" -t png - | wl-copy -t image/png]]))
 hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd([[
 hyprctl reload
