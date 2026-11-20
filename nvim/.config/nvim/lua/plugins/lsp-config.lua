@@ -8,6 +8,7 @@ local servers = {
   "cssls",
   "bashls",
   "haskell-language-server",
+  "tinymist",
 }
 
 local function clangd_executable()
@@ -63,6 +64,27 @@ return {
       end,
     })
 
+    local tinymist_settings = {
+      formatterMode = "typstyle",
+      exportPdf = "onSave",
+      semanticTokens = "disable",
+    }
+    if vim.env.TYPST_ROOT and vim.env.TYPST_ROOT ~= "" then
+      tinymist_settings.rootPath = vim.env.TYPST_ROOT
+    end
+    if vim.env.TYPST_PACKAGE_PATH and vim.env.TYPST_PACKAGE_PATH ~= "" then
+      tinymist_settings.typstExtraArgs = {
+        "--package-path=" .. vim.env.TYPST_PACKAGE_PATH,
+      }
+    end
+
+    vim.lsp.config("tinymist", {
+      cmd = { "tinymist" },
+      filetypes = { "typst" },
+      root_markers = { ".git" },
+      settings = tinymist_settings,
+    })
+
     vim.lsp.config("clangd", {
       cmd = clangd_cmd,
       filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
@@ -75,7 +97,7 @@ return {
     })
 
     for _, server in ipairs(servers) do
-      if server ~= "clangd" then
+      if server ~= "clangd" and server ~= "tinymist" then
         vim.lsp.config(server, {})
       end
       vim.lsp.enable(server)

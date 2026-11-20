@@ -12,6 +12,7 @@ local parsers = {
   "markdown_inline",
   "terraform",
   "haskell",
+  "typst",
 }
 
 return {
